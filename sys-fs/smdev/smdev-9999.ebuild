@@ -14,10 +14,6 @@ KEYWORDS=""
 
 RDEPEND=""
 
-src_prepare() {
-	sed -i '/install: all/a\	@mkdir -p ${DESTDIR}${PREFIX}/bin' Makefile
-}
-
 src_install() {
 	emake DESTDIR="${D}" PREFIX="${EPREFIX}/" install
 }

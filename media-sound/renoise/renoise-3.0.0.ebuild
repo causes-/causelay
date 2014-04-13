@@ -8,8 +8,8 @@ HOMEPAGE="http://www.renoise.com/"
 
 MY_ARCH=${ARCH/amd64/x86_64}
 MY_PV=${PV//./_}
-SRC_URI="rns_3_0_0b8_reg_x86_64.tar.gz"
-S="${WORKDIR}/rns_3_0_0b8_x86_64"
+SRC_URI="rns_${MY_PV}_reg_${MY_ARCH}.tar.gz"
+S="${WORKDIR}/rns_${MY_PV}_${MY_ARCH}"
 
 LICENSE="renoise-EULA"
 SLOT="0"
@@ -33,10 +33,10 @@ pkg_nofetch() {
 }
 
 src_install() {
-	insinto /usr/share/renoise-3.0.0
+	insinto /usr/share/renoise-${PV}
 	doins -r Resources/*
-	newbin renoise renoise-3.0.0
-	dosym /usr/bin/renoise-3.0.0 /usr/bin/renoise
+	newbin renoise renoise-${PV}
+	dosym /usr/bin/renoise-${PV} /usr/bin/renoise
 	doman Installer/renoise.1.gz
 	doman Installer/renoise-pattern-effects.5.gz
 

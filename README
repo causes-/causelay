@@ -1,0 +1,24 @@
+deferlay - defers gentoo portage overlay
+
+info:
+This repository contains ebuild script. Portage package manager uses ebuild
+scripts to download, configure, build and install packages from sources.
+
+goal:
+The main goal is to maintain packages that i personally use,
+but i can also create ebuilds on request.
+
+contents:
+git versions of packages
+latest versions waiting for addition to official portage tree
+packages that cant be found from official portage tree
+
+install:
+layman:
+emerge -av layman
+layman -a deferlay
+emerge -av numix-icon-theme
+manual:
+git clone https://github.com/defer-/deferlay
+echo 'PORTDIR_OVERLAY="/home/username/deferlay"' >> /etc/portage/make.conf
+emerge -av numix-icon-theme

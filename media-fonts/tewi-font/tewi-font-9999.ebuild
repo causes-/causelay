@@ -10,7 +10,7 @@ DESCRIPTION="Monospace font"
 HOMEPAGE="https://github.com/lucy/tewi-font"
 EGIT_REPO_URI="git://github.com/lucy/tewi-font"
 
-LICENSE="GPL"
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~x86 ~x86-fbsd"
 

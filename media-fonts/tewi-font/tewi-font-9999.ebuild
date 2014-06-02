@@ -18,7 +18,7 @@ DEPEND="x11-libs/libX11"
 RDEPEND="${DEPEND}"
 
 src_prepare() {
-	sed -i '16d' Makefile || die
+	sed -i '/xset/d' Makefile || die
 	cat Makefile
 }
 

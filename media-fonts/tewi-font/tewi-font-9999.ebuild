@@ -4,7 +4,7 @@
 
 EAPI="4"
 
-inherit eutils toolchain-funcs git-2
+inherit git-2
 
 DESCRIPTION="Monospace font"
 HOMEPAGE="https://github.com/lucy/tewi-font"
@@ -26,7 +26,6 @@ src_compile() {
 }
 
 src_install() {
-	ls
 	insinto /usr/share/fonts/tewi
 	doins *.pcf
 	doins *.bdf

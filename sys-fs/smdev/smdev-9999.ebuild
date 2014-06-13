@@ -2,13 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="4"
+EAPI="5"
 
 inherit git-2
-EGIT_REPO_URI="http://git.2f30.org/smdev/"
 
 DESCRIPTION="suckless mdev"
 HOMEPAGE="http://git.2f30.org/smdev/"
+EGIT_REPO_URI="http://git.2f30.org/smdev/"
 
 LICENSE="MIT"
 SLOT="0"

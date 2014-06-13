@@ -11,7 +11,3 @@ SRC_URI="http://sourceforge.net/projects/cpuminer/files/pooler-${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-
-src_install() {
-	emake DESTDIR="${D}" PREFIX="/usr" install
-}

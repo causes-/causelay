@@ -2,17 +2,17 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="4"
+EAPI="5"
 
 inherit git-2
-EGIT_REPO_URI="http://git.2f30.org/sinit/"
 
 DESCRIPTION="suckless init"
 HOMEPAGE="http://git.2f30.org/sinit/"
+EGIT_REPO_URI="http://git.2f30.org/sinit/"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND=""
 

@@ -7,8 +7,8 @@ EAPI="5"
 inherit git-2
 
 DESCRIPTION="Simple cron daemon"
-HOMEPAGE="https://github.com/defer-/dcron"
-EGIT_REPO_URI="https://github.com/defer-/dcron"
+HOMEPAGE="https://github.com/defer-/scron"
+EGIT_REPO_URI="https://github.com/defer-/scron"
 
 LICENSE="BSD"
 SLOT="0"

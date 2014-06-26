@@ -6,9 +6,9 @@ EAPI="5"
 
 inherit git-2
 
-DESCRIPTION="Simple cron daemon"
-HOMEPAGE="https://github.com/defer-/scron"
-EGIT_REPO_URI="https://github.com/defer-/scron"
+DESCRIPTION="Ncurses bandwidth monitor"
+HOMEPAGE="https://github.com/defer-/nbwmon"
+EGIT_REPO_URI="https://github.com/defer-/nbwmon"
 
 LICENSE="BSD"
 SLOT="0"

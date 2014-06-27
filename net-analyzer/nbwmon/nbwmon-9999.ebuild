@@ -10,6 +10,6 @@ DESCRIPTION="Ncurses bandwidth monitor"
 HOMEPAGE="https://github.com/defer-/nbwmon"
 EGIT_REPO_URI="https://github.com/defer-/nbwmon"
 
-LICENSE="BSD"
+LICENSE="MIT"
 SLOT="0"
 KEYWORDS=""

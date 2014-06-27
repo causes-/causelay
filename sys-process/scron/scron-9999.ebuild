@@ -10,6 +10,6 @@ DESCRIPTION="Simple cron daemon"
 HOMEPAGE="https://github.com/defer-/scron"
 EGIT_REPO_URI="https://github.com/defer-/scron"
 
-LICENSE="BSD"
+LICENSE="MIT"
 SLOT="0"
 KEYWORDS=""

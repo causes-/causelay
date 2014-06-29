@@ -13,7 +13,7 @@ MY_PV=${PV//./_}
 SRC_URI="rns_${MY_PV}_reg_${MY_ARCH}.tar.gz"
 S="${WORKDIR}/rns_${MY_PV}_reg_${MY_ARCH}"
 
-LICENSE="renoise-EULA"
+LICENSE="renoise"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE="-icons"

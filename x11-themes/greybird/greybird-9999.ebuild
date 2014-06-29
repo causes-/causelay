@@ -12,7 +12,7 @@ EGIT_REPO_URI="git://github.com/shimmerproject/Greybird"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 
 RDEPEND="x11-themes/gtk-engines-murrine"
 

@@ -13,7 +13,7 @@ MY_PV=${PV//./_}
 SRC_URI="http://files.renoise.com/demo/Renoise_${MY_PV}_Demo_${MY_ARCH}.tar.bz2"
 S="${WORKDIR}/Renoise_${MY_PV}_Demo_${MY_ARCH}"
 
-LICENSE="renoise-EULA"
+LICENSE="renoise"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE="-icons"

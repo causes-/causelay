@@ -12,7 +12,7 @@ EGIT_REPO_URI="git://github.com/spaam/svtplay-dl"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 
 DEPEND="dev-python/pycrypto
 	media-video/rtmpdump"

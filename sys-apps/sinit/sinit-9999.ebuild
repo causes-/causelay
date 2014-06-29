@@ -12,7 +12,7 @@ EGIT_REPO_URI="http://git.2f30.org/sinit/"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 
 RDEPEND=""
 

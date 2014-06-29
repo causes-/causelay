@@ -12,7 +12,7 @@ EGIT_REPO_URI="git://github.com/lindes/ttyload"
 
 LICENSE="ttyload"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 
 src_install() {
 	into ${EPREFIX}/usr

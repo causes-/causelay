@@ -4,11 +4,11 @@
 
 EAPI="5"
 
-inherit git-2
+inherit eutils savedconfig git-2
 
 DESCRIPTION="suckless init"
-HOMEPAGE="http://git.2f30.org/sinit/"
-EGIT_REPO_URI="http://git.2f30.org/sinit/"
+HOMEPAGE="http://tools.suckless.org/sinit"
+EGIT_REPO_URI="http://git.suckless.org/sinit"
 
 LICENSE="MIT"
 SLOT="0"
@@ -16,6 +16,12 @@ KEYWORDS=""
 
 RDEPEND=""
 
+src_prepare() {
+	restore_config config.h
+	epatch_user
+}
+
 src_install() {
 	emake DESTDIR="${D}" PREFIX="${EPREFIX}/" install
+	save_config config.h
 }

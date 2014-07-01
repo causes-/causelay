@@ -4,15 +4,15 @@
 
 EAPI="5"
 
-inherit eutils savedconfig git-2
+inherit eutils savedconfig
 
-DESCRIPTION="suckless mdev"
-HOMEPAGE="http://git.2f30.org/smdev/"
-EGIT_REPO_URI="http://git.2f30.org/smdev/"
+DESCRIPTION="suckless init"
+HOMEPAGE="http://tools.suckless.org/sinit"
+SRC_URI="http://git.suckless.org/${PN}/snapshot/${P}.tar.bz2"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~x86 ~amd64"
 
 RDEPEND=""
 

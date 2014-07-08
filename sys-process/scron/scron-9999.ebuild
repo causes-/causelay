@@ -14,7 +14,12 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS=""
 
+RESTRICT="strip"
+
+DEPEND="!sys-process/cronbase"
+
 src_install() {
-	emake DESTDIR="${D}" PREFIX="${EPREFIX}" install
+	emake DESTDIR="${D}" install
 	newinitd "${FILESDIR}/init-${PV}" crond
+	dodoc README
 }

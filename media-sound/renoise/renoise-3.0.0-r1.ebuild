@@ -16,7 +16,6 @@ S="${WORKDIR}/rns_${MY_PV}_${MY_ARCH}"
 LICENSE="renoise"
 SLOT="0"
 KEYWORDS="-* ~x86 ~amd64"
-IUSE="-icons"
 RESTRICT="fetch strip"
 
 DEPEND=""
@@ -26,9 +25,9 @@ RDEPEND="
 "
 
 QA_PREBUILT="
-	usr/share/renoise-3.0.0/AudioPluginServer_x86_64
-	usr/share/renoise-3.0.0/AudioPluginServer_x86
-	usr/bin/renoise-3.0.0
+	usr/share/renoise-${PV}/AudioPluginServer_x86_64
+	usr/share/renoise-${PV}/AudioPluginServer_x86
+	usr/bin/renoise-${PV}
 "
 
 src_prepare() {
@@ -43,14 +42,11 @@ src_install() {
 	doman Installer/renoise.1.gz
 	doman Installer/renoise-pattern-effects.5.gz
 
-	if use icons ; then
-		insinto /usr/share/mime/packages
-		doins Installer/renoise.xml
-		doicon -s 48 -c apps Installer/renoise.png
-		doicon -s 48 -c mimetypes Installer/renoise.png
-		doicon -s 48 -c mimetypes Installer/renoise.png
-		domenu Installer/renoise.desktop
-	fi
+	insinto /usr/share/mime/packages
+	doins Installer/renoise.xml
+	doicon -s 48 -c apps Installer/renoise.png
+	doicon -s 48 -c mimetypes Installer/renoise.png
+	domenu Installer/renoise.desktop
 }
 
 pkg_nofetch() {

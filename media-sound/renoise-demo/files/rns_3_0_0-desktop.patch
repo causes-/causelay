@@ -1,0 +1,16 @@
+diff -rup rns_3_0_0_x86_64-upstream/Installer/renoise.desktop rns_3_0_0_x86_64/Installer/renoise.desktop
+--- rns_3_0_0_x86_64-upstream/Installer/renoise.desktop	2014-07-13 14:10:20.768925667 +0300
++++ rns_3_0_0_x86_64/Installer/renoise.desktop	2014-07-13 14:11:34.648925087 +0300
+@@ -6,10 +6,9 @@ GenericName=Music Tracker
+ Comment=A music composition program
+ Type=Application
+ Categories=AudioVideo;Audio;
+-FilePattern=renoise;
+ Exec=renoise %f
+ Terminal=false
+ StartupNotify=false
+-Icon=renoise.png
+-MimeType=application/x-renoise-module;application/x-renoise-rns-module
++Icon=renoise
++MimeType=application/x-renoise-module;application/x-renoise-rns-module;
+ 

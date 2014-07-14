@@ -4,7 +4,7 @@
 
 EAPI="5"
 
-inherit git-2
+inherit git-r3
 
 DESCRIPTION="Ncurses bandwidth monitor"
 HOMEPAGE="https://github.com/defer-/nbwmon"

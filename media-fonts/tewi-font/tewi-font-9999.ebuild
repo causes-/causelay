@@ -4,7 +4,7 @@
 
 EAPI="5"
 
-inherit git-2
+inherit git-r3 font
 
 DESCRIPTION="Monospace font"
 HOMEPAGE="https://github.com/lucy/tewi-font"
@@ -14,21 +14,30 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
 
-DEPEND="x11-libs/libX11"
+# bdf2psf gives warnings like: WARNING: U+0020: no glyph defined
+IUSE="bdf pcf"
+
+DEPEND="
+	x11-libs/libX11
+	pcf? ( x11-apps/bdftopcf )
+	!pcf? ( media-fonts/tewi-font[bdf] )
+	!bdf? ( media-fonts/tewi-font[pcf] )
+"
 RDEPEND="${DEPEND}"
 
-src_prepare() {
-	sed -i '/xset/d' Makefile || die
-}
-
 src_compile() {
-	emake all
+	if use pcf; then emake pcfs; fi
 }
 
 src_install() {
-	insinto /usr/share/fonts/tewi
-	doins *.pcf
-	doins *.bdf
-	doins fonts.dir
-	doins fonts.scale
+	insinto /usr/share/fonts/${PN}
+	if use bdf; then
+		doins *.bdf
+	fi
+
+	if use pcf; then
+		doins *.pcf
+	fi
+
+	font_src_install
 }

@@ -17,11 +17,11 @@ KEYWORDS=""
 # bdf2psf gives warnings like: WARNING: U+0020: no glyph defined
 IUSE="bdf pcf"
 
+REQUIRED_USE="( || ( bdf pcf ) )"
+
 DEPEND="
 	x11-libs/libX11
 	pcf? ( x11-apps/bdftopcf )
-	!pcf? ( media-fonts/tewi-font[bdf] )
-	!bdf? ( media-fonts/tewi-font[pcf] )
 "
 RDEPEND="${DEPEND}"
 

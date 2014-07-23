@@ -4,22 +4,20 @@
 
 EAPI="5"
 
-inherit git-r3
-
 DESCRIPTION="Simple cron daemon"
 HOMEPAGE="http://git.2f30.org/scron/"
-EGIT_REPO_URI="http://git.2f30.org/scron/"
+SRC_URI="http://git.2f30.org/scron/snapshot/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~x86 ~amd64"
 
-RESTRICT="strip"
+RESTRICT="strip mirror"
 
 DEPEND="!sys-process/cronbase"
 
 src_install() {
-	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr" install
-	newinitd "${FILESDIR}/init-0.3.1" crond
+	emake DESTDIR="${D}" install
+	newinitd "${FILESDIR}/init-${PV}" crond
 	dodoc README
 }

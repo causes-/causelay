@@ -14,9 +14,24 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 
-DEPEND=""
+DEPEND="
+	sys-devel/tup
+	dev-libs/jansson
+	net-misc/curl
+	"
 RDEPEND=""
 
-src_prepare() {
-	eautoreconf
+src_compile() {
+	addwrite /dev/fuse
+	tup init
+	tup upd
+}
+
+src_install() {
+	dobin src/shaman
+	dolib.so src/libweather.so
+	insinto /usr/include
+	doins src/weather.h
+	doman docs/shaman.1
+	doman docs/strfweather.3
 }

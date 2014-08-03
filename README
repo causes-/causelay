@@ -1,24 +1,13 @@
 deferlay
 ========
 
-about
------
-This repository contains ebuild script
-Portage package manager uses ebuild scripts to download,
-configure, build and install packages from sources.
-
-goal
-----
-The main goal is to maintain packages that i personally use,
-but i can also create ebuilds on request.
-
-contents
+Contents
 --------
-git versions of packages
-latest versions waiting for addition to official portage tree
-packages that cant be found from official portage tree
+Git versions of packages.
+Latest versions waiting for addition to official portage tree.
+Packages that can't be found from official portage tree.
 
-install
+Install
 -------
 layman:
 layman -a deferlay

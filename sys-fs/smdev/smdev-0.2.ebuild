@@ -7,8 +7,8 @@ EAPI="5"
 inherit eutils savedconfig
 
 DESCRIPTION="suckless mdev"
-HOMEPAGE="http://git.2f30.org/smdev/"
-SRC_URI="http://git.2f30.org/${PN}/snapshot/${P}.tar.gz"
+HOMEPAGE="http://git.suckless.org/smdev/"
+SRC_URI="http://git.suckless.org/${PN}/snapshot/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -23,5 +23,16 @@ src_prepare() {
 
 src_install() {
 	emake DESTDIR="${D}" PREFIX="${EPREFIX}/" install
+	newinitd "${FILESDIR}/init-${PV}" smdev
 	save_config config.h
+}
+
+pkg_postinst() {
+	einfo "To switch from udev you should do the following:"
+	einfo "Set USE=\"-udev\" INPUT_DEVICES=\"synaptics keyboard mouse\""
+	einfo "Rebuild world"
+	einfo "Update xorg configs to use kbd and mouse instead of evdev"
+	einfo "rc-update del udev sysinit"
+	einfo "rc-update del udev-mount sysinit"
+	einfo "rc-update add smdev sysinit"
 }

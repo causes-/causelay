@@ -1,4 +1,5 @@
 #!/sbin/runscript
+
 depend()
 {
 	provide dev
@@ -7,10 +8,9 @@ depend()
 
 start()
 {
-	ebegin "Mounting /dev (smdev)"
-	# First umount /dev and friends if it is already mounted.
-	# It may be leftover from initramfs mount --move, we don't
-	# want to use it.
+	ebegin "Starting smdev"
+	# umount /dev if it is already mounted.
+	# It may be leftover from initramfs mount --move
 	umount /dev/pts /dev/shm /dev >/dev/null 2>&1
 	if fstabinfo --quiet /dev ; then
 		mount -n /dev
@@ -18,15 +18,7 @@ start()
 		mount -n -t tmpfs -o "exec,nosuid,mode=0755,size=10M" smdev-tmpfs /dev
 	fi
 
-	# Create a file so that our rc system knows it's still in sysinit.
-	# Existance means init scripts will not directly run.
-	# rc will remove the file when done with sysinit.
-	touch /dev/.rcsysinit
-
-	# Avoid race conditions, serialize hotplug events.
-	touch /dev/smdev.seq
-
-	# Some basic nodes.
+	# Create some basic nodes.
 	[ ! -e /dev/console ]	&& mknod /dev/console c 5 1
 	[ ! -e /dev/null ]		&& mknod /dev/null c 1 3
 	[ ! -e /dev/tty ]		&& mknod /dev/tty c 5 0
@@ -49,38 +41,27 @@ start()
 		eend 0
 	fi
 
-	ebegin "Loading kernel modules for detected hardware"
+	ebegin "smdev: loading kernel modules"
 	env -i /bin/smdev -s
-	# smdev -s does not poke network interfaces or usb devices so we need to do it here.
-	for i in /sys/class/net/*/uevent; do printf 'add' > "$i"; done 2>/dev/null; unset i
-	for i in /sys/bus/usb/devices/*; do
-		case "${i##*/}" in
-			[0-9]*-[0-9]*)
-				printf 'add' > "$i/uevent"
-			;;
-		esac
-	done; unset i
-	# Load kernel modules, run twice.
-	find /sys -name 'modalias' -type f -exec cat '{}' + | sort -u | xargs modprobe -b -a 2>/dev/null
+	# Load kernel modules
 	find /sys -name 'modalias' -type f -exec cat '{}' + | sort -u | xargs modprobe -b -a 2>/dev/null
 	eend 0
 
-	ebegin "Mounting /dev/pts"
+	ebegin "smdev: mounting /dev/pts"
 	if ! fstabinfo --mount /dev/pts; then
 		mount -n -t devpts -o noexec,nosuid,gid=5,mode=0620 devpts /dev/pts
 	fi
 	eend "$?"
 
-	ebegin "Mounting /dev/shm"
+	ebegin "smdev: mounting /dev/shm"
 	if ! fstabinfo --mount /dev/shm; then
 		mount -n -t tmpfs -o noexec,nosuid,nodev,mode=1777 shm-tmpfs /dev/shm
 	fi
 	eend "$?"
-
 }
 
 stop() {
-	ebegin "Disabling smdev hotplug agent."
+	ebegin "Stopping smdev"
 	[ -e /proc/sys/kernel/hotplug ] && echo '' >/proc/sys/kernel/hotplug
 	eend 0
 }

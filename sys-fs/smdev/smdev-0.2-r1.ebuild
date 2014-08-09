@@ -4,7 +4,7 @@
 
 EAPI="5"
 
-inherit eutils savedconfig
+inherit eutils savedconfig linux-info
 
 DESCRIPTION="suckless mdev"
 HOMEPAGE="http://git.suckless.org/smdev/"
@@ -14,7 +14,22 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 
-RDEPEND=""
+RDEPEND="
+	!x11-drivers/xf86-input-evdev
+	x11-base/xorg-server[-udev]
+"
+
+pkg_pretend() {
+	if use kernel_linux; then
+		if ! linux_config_exists; then
+			ewarn "Unable to check your kernel for DEVTMPFS support"
+		else
+			CONFIG_CHECK="~DEVTMPFS"
+			ERROR_DEVTMPFS="You must enable DEVTMPFS in your kernel to continue"
+			check_extra_config
+		fi
+	fi
+}
 
 src_prepare() {
 	restore_config config.h
@@ -23,7 +38,7 @@ src_prepare() {
 
 src_install() {
 	emake DESTDIR="${D}" PREFIX="${EPREFIX}/" install
-	newinitd "${FILESDIR}/init-0.2.1" smdev
+	newinitd "${FILESDIR}/init-${PV}" smdev
 	save_config config.h
 }
 
@@ -32,6 +47,7 @@ pkg_postinst() {
 	einfo "Set USE=\"-udev\" INPUT_DEVICES=\"synaptics keyboard mouse\""
 	einfo "Rebuild world"
 	einfo "Update xorg configs to use kbd and mouse instead of evdev"
+	einfo "gpasswd -a <USER> tty"
 	einfo "rc-update del udev sysinit"
 	einfo "rc-update del udev-mount sysinit"
 	einfo "rc-update add smdev sysinit"

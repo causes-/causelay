@@ -28,11 +28,12 @@ src_install() {
 }
 
 pkg_postinst() {
-	einfo "To switch from udev you should do the following:"
-	einfo "Set USE=\"-udev\" INPUT_DEVICES=\"synaptics keyboard mouse\""
-	einfo "Rebuild world"
-	einfo "Update xorg configs to use kbd and mouse instead of evdev"
-	einfo "rc-update del udev sysinit"
-	einfo "rc-update del udev-mount sysinit"
-	einfo "rc-update add smdev sysinit"
+	elog "To switch from udev you should do the following:"
+	elog "Set USE=\"-udev\" INPUT_DEVICES=\"synaptics keyboard mouse\""
+	elog "Rebuild world"
+	elog "Update xorg configs to use kbd and mouse instead of evdev"
+	elog "gpasswd -a <USER> tty"
+	elog "rc-update del udev sysinit"
+	elog "rc-update del udev-mount sysinit"
+	elog "rc-update add smdev sysinit"
 }

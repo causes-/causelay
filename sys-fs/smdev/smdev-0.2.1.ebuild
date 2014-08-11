@@ -14,18 +14,18 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 
-RDEPEND="
-	!x11-drivers/xf86-input-evdev
-	x11-base/xorg-server[-udev]
-"
+RESTRICT="mirror"
+
+RDEPEND="!x11-drivers/xf86-input-evdev"
+
+CONFIG_CHECK="~DEVTMPFS"
+ERROR_DEVTMPFS="It is recommended to enable DEVTMPFS in kernel"
 
 pkg_pretend() {
 	if use kernel_linux; then
 		if ! linux_config_exists; then
 			ewarn "Unable to check your kernel for DEVTMPFS support"
 		else
-			CONFIG_CHECK="~DEVTMPFS"
-			ERROR_DEVTMPFS="You must enable DEVTMPFS in your kernel to continue"
 			check_extra_config
 		fi
 	fi

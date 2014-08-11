@@ -35,14 +35,21 @@ start()
 		eend 0
 	fi
 
-	if [ -e /proc/sys/kernel/hotplug ] ; then
+	# Not provided by sysfs but needed
+	ln -snf /proc/self/fd /dev/fd
+	ln -snf fd/0 /dev/stdin
+	ln -snf fd/1 /dev/stdout
+	ln -snf fd/2 /dev/stderr
+	[ -e /proc/kcore ] && ln -snf /proc/kcore /dev/core
+
+	if [ -e /proc/sys/kernel/hotplug ]; then
 		ebegin "Setting up smdev as hotplug agent"
 		echo $command > /proc/sys/kernel/hotplug
 		eend 0
 	fi
 
 	ebegin "Loading kernel modules"
-	env -i $command -s
+	$command -s
 	find /sys -name 'modalias' -type f -exec cat '{}' + | sort -u | xargs modprobe -b -a 2>/dev/null
 	eend 0
 }

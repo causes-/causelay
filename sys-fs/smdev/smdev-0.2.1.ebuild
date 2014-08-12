@@ -16,8 +16,6 @@ KEYWORDS="~x86 ~amd64"
 
 RESTRICT="mirror"
 
-RDEPEND="!x11-drivers/xf86-input-evdev"
-
 CONFIG_CHECK="~DEVTMPFS"
 ERROR_DEVTMPFS="It is recommended to enable DEVTMPFS in kernel"
 
@@ -44,9 +42,10 @@ src_install() {
 
 pkg_postinst() {
 	elog "To switch from udev you should do the following:"
-	elog "Set USE=\"-udev\" INPUT_DEVICES=\"synaptics keyboard mouse\""
+	elog "Disable udev USE flag"
+	elog "Use keyboard and mouse instead of evdev in INPUT_DEVICES"
 	elog "Rebuild world"
-	elog "Update xorg configs to use kbd and mouse instead of evdev"
+	elog "Update x.org configs to use kbd and mouse instead of evdev"
 	elog "gpasswd -a <USER> tty"
 	elog "rc-update del udev sysinit"
 	elog "rc-update del udev-mount sysinit"

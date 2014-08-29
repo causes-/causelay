@@ -3,7 +3,6 @@
 # $Header: $
 
 EAPI="5"
-inherit eutils
 
 DESCRIPTION="Ncurses bandwidth monitor"
 HOMEPAGE="https://github.com/defer-/nbwmon"
@@ -12,7 +11,8 @@ SRC_URI="https://github.com/defer-/${PN}/archive/${PV}.tar.gz -> \
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~x86 ~amd64"
+RESTRICT="mirror"
 
 DEPEND="
 	virtual/pkgconfig

@@ -4,7 +4,7 @@
 
 EAPI="4"
 
-inherit eutils savedconfig toolchain-funcs git-2
+inherit eutils savedconfig toolchain-funcs git-r3
 
 DESCRIPTION="a dynamic window manager for X11"
 HOMEPAGE="http://dwm.suckless.org/"
@@ -65,8 +65,6 @@ pkg_postinst() {
 		elog "Installing ${PN} without x11-misc/dmenu"
 		einfo "To have a menu you can install x11-misc/dmenu"
 	fi
-	einfo "You can custom status bar with a script in HOME/.dwm/dwmrc"
-	einfo "the ouput is redirected to the standard input of dwm"
-	einfo "Since dwm-5.4, status info in the bar must be set like this:"
+	einfo "You can custom status bar by usimg xsetroot:"
 	einfo "xsetroot -name \"\`date\` \`uptime | sed 's/.*,//'\`\""
 }

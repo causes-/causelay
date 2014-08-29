@@ -4,15 +4,15 @@
 
 EAPI="5"
 
-inherit eutils savedconfig git-r3
+inherit eutils savedconfig
 
 DESCRIPTION="suckless init"
 HOMEPAGE="http://tools.suckless.org/sinit"
-EGIT_REPO_URI="http://git.suckless.org/sinit"
+SRC_URI="http://git.suckless.org/${PN}/snapshot/${P}.tar.bz2"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~x86 ~amd64"
 
 src_prepare() {
 	restore_config config.h

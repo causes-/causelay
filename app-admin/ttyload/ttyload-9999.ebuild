@@ -4,7 +4,7 @@
 
 EAPI="5"
 
-inherit git-2
+inherit git-r3
 
 DESCRIPTION="Graphical load average on terminal"
 HOMEPAGE="http://www.daveltd.com/src/util/ttyload/"

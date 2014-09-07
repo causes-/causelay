@@ -4,12 +4,25 @@
 
 EAPI="5"
 
-inherit git-r3
+inherit eutils toolchain-funcs git-r3
 
-DESCRIPTION="Ncurses bandwidth monitor"
+DESCRIPTION="ncurses bandwidth monitor"
 HOMEPAGE="https://github.com/defer-/nbwmon"
 EGIT_REPO_URI="https://github.com/defer-/nbwmon"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS=""
+
+RDEPEND="
+	sys-libs/ncurses
+"
+DEPEND="
+	${RDEPEND}
+	virtual/pkgconfig
+"
+
+src_prepare() {
+	epatch "${FILESDIR}"/${P}-tinfo.patch
+	tc-export CC PKG_CONFIG
+}

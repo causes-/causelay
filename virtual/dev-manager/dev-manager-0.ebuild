@@ -15,10 +15,10 @@ IUSE=""
 
 DEPEND=""
 RDEPEND="|| (
-		sys-fs/smdev
 		virtual/udev
 		sys-apps/busybox[mdev]
+		sys-fs/smdev
 		sys-fs/devfsd
 		sys-fs/static-dev
 		sys-freebsd/freebsd-sbin
-	)"
+)"

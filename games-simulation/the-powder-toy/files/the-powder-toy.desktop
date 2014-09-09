@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=The Powder Toy
+GenericName=Falling Sand Game
+Comment=physics sandbox game
+Exec=powder
+Icon=powder
+Terminal=false
+Type=Application
+Categories=Game;
+StartupNotify=true

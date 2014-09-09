@@ -4,11 +4,11 @@
 
 EAPI="5"
 
-inherit eutils toolchain-funcs git-r3
+inherit git-r3
 
-DESCRIPTION="bash scripts"
-HOMEPAGE="https://github.com/defer-/scription"
-EGIT_REPO_URI="https://github.com/defer-/scription"
+DESCRIPTION="print terminal color palette"
+HOMEPAGE="https://github.com/defer-/colors"
+EGIT_REPO_URI="https://github.com/defer-/colors"
 
 LICENSE="MIT"
 SLOT="0"

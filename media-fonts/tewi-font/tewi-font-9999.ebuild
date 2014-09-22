@@ -6,7 +6,7 @@ EAPI="5"
 
 inherit git-r3 font
 
-DESCRIPTION="Monospace font"
+DESCRIPTION="monospace font"
 HOMEPAGE="https://github.com/lucy/tewi-font"
 EGIT_REPO_URI="git://github.com/lucy/tewi-font"
 

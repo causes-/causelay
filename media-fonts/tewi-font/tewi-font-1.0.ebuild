@@ -6,7 +6,7 @@ EAPI="5"
 
 inherit font
 
-DESCRIPTION="Monospace font"
+DESCRIPTION="monospace font"
 HOMEPAGE="https://github.com/lucy/tewi-font"
 SRC_URI="https://github.com/lucy/${PN}/archive/${PV}.tar.gz -> \
 	${P}.tar.gz"

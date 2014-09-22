@@ -15,9 +15,11 @@ KEYWORDS="~amd64 ~x86"
 RDEPEND="net-misc/curl"
 DEPEND="${RDEPEND}"
 
+S=${WORKDIR}
+
 src_unpack() {
-	mkdir -p ${WORKDIR}/${P}
-	cp ${DISTDIR}/${PN}.sh ${WORKDIR}/${P}/
+	mkdir -p ${S}
+	cp ${DISTDIR}/${PN}.sh ${S}
 }
 
 src_install() {

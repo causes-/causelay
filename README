@@ -1,19 +1,19 @@
-deferlay
+causelay
 ========
 
 Contents
 --------
 Git versions of packages.
 Latest versions waiting for addition to official portage tree.
-Packages that can't be found from official portage tree.
+Packages that don't belong to official portage tree.
 
 Install
 -------
 layman:
-layman -a deferlay
+layman -a causelay
 emerge -av nbwmon
 
 manual:
-git clone https://github.com/defer-/deferlay
-echo 'PORTDIR_OVERLAY="/home/username/deferlay"' >> /etc/portage/make.conf
+git clone https://github.com/causes-/causelay
+echo 'PORTDIR_OVERLAY="/home/username/causelay"' >> /etc/portage/make.conf
 emerge -av nbwmon

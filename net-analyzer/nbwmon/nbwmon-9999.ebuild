@@ -7,8 +7,8 @@ EAPI="5"
 inherit eutils toolchain-funcs git-r3
 
 DESCRIPTION="ncurses bandwidth monitor"
-HOMEPAGE="https://github.com/defer-/nbwmon"
-EGIT_REPO_URI="https://github.com/defer-/nbwmon"
+HOMEPAGE="https://github.com/causes-/nbwmon"
+EGIT_REPO_URI="https://github.com/causes-/nbwmon"
 
 LICENSE="MIT"
 SLOT="0"

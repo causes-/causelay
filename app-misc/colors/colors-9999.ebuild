@@ -7,8 +7,8 @@ EAPI="5"
 inherit git-r3
 
 DESCRIPTION="print terminal color palette"
-HOMEPAGE="https://github.com/defer-/colors"
-EGIT_REPO_URI="https://github.com/defer-/colors"
+HOMEPAGE="https://github.com/causes-/colors"
+EGIT_REPO_URI="https://github.com/causes-/colors"
 
 LICENSE="MIT"
 SLOT="0"

@@ -1,0 +1,13 @@
+diff -up smdev-0.2.2-upstream/config.mk smdev-0.2.2/config.mk
+--- smdev-0.2.2-upstream/config.mk	2014-09-27 12:45:06.629961903 +0300
++++ smdev-0.2.2/config.mk	2014-09-27 12:45:14.259961817 +0300
+@@ -4,7 +4,7 @@ VERSION = 0.2.2
+ # paths
+ PREFIX = /usr/local
+ 
+-#CC = gcc
++CC = gcc
+ #CC = musl-gcc
+ LD = $(CC)
+ CPPFLAGS = -D_BSD_SOURCE -D_GNU_SOURCE
+Common subdirectories: smdev-0.2.2-upstream/util and smdev-0.2.2/util

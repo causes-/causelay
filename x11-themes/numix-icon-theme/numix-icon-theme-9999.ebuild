@@ -4,7 +4,7 @@
 
 EAPI="5"
 
-inherit git-2
+inherit git-r3
 
 DESCRIPTION="Icon theme from the numix project."
 HOMEPAGE="http://numixproject.org/"

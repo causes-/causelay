@@ -4,7 +4,7 @@
 
 EAPI="5"
 
-inherit eutils savedconfig linux-info
+inherit eutils toolchain-funcs savedconfig
 
 DESCRIPTION="suckless mdev"
 HOMEPAGE="http://git.suckless.org/smdev/"
@@ -14,25 +14,16 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 
-pkg_pretend() {
-	if use kernel_linux; then
-		if ! linux_config_exists; then
-			ewarn "Unable to check your kernel for DEVTMPFS support"
-		else
-			CONFIG_CHECK="~DEVTMPFS"
-			ERROR_DEVTMPFS="You must enable DEVTMPFS in your kernel to continue"
-			check_extra_config
-		fi
-	fi
-}
-
 src_prepare() {
+	epatch "${FILESDIR}/smdev-0.2.2-define-CC.patch"
+
 	restore_config config.h
 	epatch_user
 }
 
 src_install() {
-	emake DESTDIR="${D}" PREFIX="${EPREFIX}/" install
+	emake DESTDIR="${D}" PREFIX="${EPREFIX}" install
+
 	newinitd "${FILESDIR}/init-${PV}" smdev
 	save_config config.h
 }

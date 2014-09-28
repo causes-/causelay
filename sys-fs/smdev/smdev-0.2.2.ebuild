@@ -37,7 +37,6 @@ pkg_postinst() {
 	elog "Use keyboard and mouse instead of evdev in INPUT_DEVICES"
 	elog "Rebuild world"
 	elog "Update X.Org configs to use kbd and mouse instead of evdev"
-	elog "gpasswd -a <USER> tty"
 	elog "rc-update del udev sysinit"
 	elog "rc-update del udev-mount sysinit"
 	elog "rc-update del udev-postmount boot"

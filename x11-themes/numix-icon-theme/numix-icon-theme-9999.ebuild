@@ -8,7 +8,7 @@ inherit git-r3
 
 DESCRIPTION="Icon theme from the numix project."
 HOMEPAGE="http://numixproject.org/"
-EGIT_REPO_URI="git://github.com/numixproject/numix-icon-theme"
+EGIT_REPO_URI="https://github.com/numixproject/numix-icon-theme"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -18,5 +18,6 @@ RESTRICT="binchecks strip"
 
 src_install() {
 	insinto /usr/share/icons
+	doins -r Numix-Light
 	doins -r Numix
 }

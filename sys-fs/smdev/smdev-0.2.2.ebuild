@@ -15,10 +15,12 @@ SLOT="0"
 KEYWORDS="~x86 ~amd64"
 
 src_prepare() {
-	epatch "${FILESDIR}/smdev-0.2.2-define-CC.patch"
-
 	restore_config config.h
 	epatch_user
+}
+
+src_compile() {
+	emake CC="$(tc-getCC)" CFLAGS="${CFLAGS}"
 }
 
 src_install() {
@@ -29,13 +31,16 @@ src_install() {
 }
 
 pkg_postinst() {
+	elog
 	elog "To switch from udev you should do the following:"
 	elog "Disable udev USE flag"
 	elog "Use keyboard and mouse instead of evdev in INPUT_DEVICES"
 	elog "Rebuild world"
-	elog "Update x.org configs to use kbd and mouse instead of evdev"
+	elog "Update X.Org configs to use kbd and mouse instead of evdev"
 	elog "gpasswd -a <USER> tty"
 	elog "rc-update del udev sysinit"
 	elog "rc-update del udev-mount sysinit"
+	elog "rc-update del udev-postmount boot"
 	elog "rc-update add smdev sysinit"
+	elog
 }

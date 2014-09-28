@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI=5
-inherit eutils
+inherit eutils fdo-mime
 
 DESCRIPTION="Complete DAW using a tracker-based approach"
 HOMEPAGE="http://www.renoise.com/"
@@ -15,23 +15,23 @@ S="${WORKDIR}/rns_${MY_PV}_${MY_ARCH}"
 
 LICENSE="renoise"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
-IUSE="-icons"
+KEYWORDS="-* ~x86 ~amd64"
 RESTRICT="fetch strip"
 
-DEPEND="
-	icons? (
-		x11-misc/xdg-utils
-	)
-"
-
+DEPEND=""
 RDEPEND="
 	!media-sound/renoise-demo
 	media-libs/alsa-lib
 "
 
-pkg_nofetch() {
-	elog "Download ${A} from ${HOMEPAGE} and place it in ${DISTDIR}"
+QA_PREBUILT="
+	usr/share/renoise-${PV}/AudioPluginServer_x86_64
+	usr/share/renoise-${PV}/AudioPluginServer_x86
+	usr/bin/renoise-${PV}
+"
+
+src_prepare() {
+	epatch "${FILESDIR}/rns_3_0_0-desktop.patch"
 }
 
 src_install() {
@@ -42,11 +42,23 @@ src_install() {
 	doman Installer/renoise.1.gz
 	doman Installer/renoise-pattern-effects.5.gz
 
-	if use icons ; then
-		xdg-mime install --novendor Installer/renoise.xml
-		doicon -s 48 -c apps Installer/renoise.png
-		doicon -s 48 -c mimetypes Installer/renoise.png application-x-renoise-module
-		doicon -s 48 -c mimetypes Installer/renoise.png application-x-renoise-rns-module
-		domenu Installer/renoise.desktop
-	fi
+	insinto /usr/share/mime/packages
+	doins Installer/renoise.xml
+	doicon -s 48 -c apps Installer/renoise.png
+	doicon -s 48 -c mimetypes Installer/renoise.png
+	domenu Installer/renoise.desktop
+}
+
+pkg_nofetch() {
+	elog "Download ${A} from ${HOMEPAGE} and place it in ${DISTDIR}"
+}
+
+pkg_postinst() {
+	fdo-mime_mime_database_update
+	fdo-mime_desktop_database_update
+}
+
+pkg_postrm() {
+	fdo-mime_mime_database_update
+	fdo-mime_desktop_database_update
 }

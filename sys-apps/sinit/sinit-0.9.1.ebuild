@@ -13,7 +13,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 
-RESTRICT="strip mirror"
+RESTRICT="strip"
 
 src_prepare() {
 	restore_config config.h

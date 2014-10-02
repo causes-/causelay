@@ -20,6 +20,6 @@ DEPEND="!sys-process/cronbase"
 
 src_install() {
 	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr" install
-	newinitd "${FILESDIR}/init-0.3.1" crond
+	newinitd "${FILESDIR}/init-0.3.2" crond
 	dodoc README
 }

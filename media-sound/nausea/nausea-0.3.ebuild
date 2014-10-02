@@ -11,7 +11,6 @@ SRC_URI="http://git.2f30.org/${PN}/snapshot/${P}.tar.gz"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
-RESTRICT="mirror"
 
 DEPEND="
 	sys-libs/ncurses

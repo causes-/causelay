@@ -10,8 +10,6 @@ DESCRIPTION="A Qt based Digital DJ tool"
 HOMEPAGE="http://mixxx.sourceforge.net"
 SRC_URI="http://downloads.${PN}.org/${P}/${P}-src.tar.gz"
 
-RESTRICT="mirror"
-
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"

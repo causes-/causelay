@@ -4,7 +4,7 @@
 
 EAPI="5"
 
-inherit eutils toolchain-funcs savedconfig
+inherit toolchain-funcs savedconfig
 
 DESCRIPTION="suckless mdev"
 HOMEPAGE="http://git.suckless.org/smdev/"

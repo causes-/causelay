@@ -12,7 +12,6 @@ SRC_URI="https://github.com/aajanki/${PN}/archive/${PV}.tar.gz -> \
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
-RESTRICT="mirror"
 
 DEPEND="dev-python/pycrypto
 	media-video/rtmpdump

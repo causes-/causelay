@@ -12,10 +12,10 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 
-RESTRICT="strip mirror"
+RESTRICT="strip"
 
 src_install() {
 	emake DESTDIR="${D}" PREFIX="${EPREFIX}" install
-	newinitd "${FILESDIR}/init-0.3.1" crond
+	newinitd "${FILESDIR}/init-0.3.2" crond
 	dodoc README
 }

@@ -14,7 +14,6 @@ SRC_URI="https://github.com/lucy/${PN}/archive/${PV}.tar.gz -> \
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
-RESTRICT="mirror"
 
 # bdf2psf gives warnings like: WARNING: U+0020: no glyph defined
 IUSE="bdf pcf"

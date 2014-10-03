@@ -4,7 +4,7 @@
 
 EAPI="5"
 
-inherit git-r3
+inherit eutils git-r3
 
 DESCRIPTION="Curses audio visualizer"
 HOMEPAGE="http://git.2f30.org/nausea/"
@@ -18,6 +18,10 @@ DEPEND="
 	sys-libs/ncurses
 	sci-libs/fftw
 "
+
+src_prepare() {
+	epatch_user
+}
 
 src_install() {
 	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr" MANPREFIX="${PREFIX}" install

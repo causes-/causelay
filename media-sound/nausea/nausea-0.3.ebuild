@@ -24,6 +24,6 @@ src_prepare() {
 }
 
 src_install() {
-	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr" MANPREFIX="${PREFIX}" install
+	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr/" MANPREFIX="${PREFIX}/usr/share/man/" install
 	dodoc README
 }

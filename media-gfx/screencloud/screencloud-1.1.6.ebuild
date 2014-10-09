@@ -15,9 +15,10 @@ KEYWORDS="~x86 ~amd64"
 IUSE=""
 
 DEPEND="
-dev-libs/quazip
-x11-libs/libqxt
-dev-python/PyQtMobility
+	dev-libs/quazip
+	x11-libs/libqxt
+	dev-python/PyQtMobility
+	dev-qt/qtmultimedia
 "
 RDEPEND="${DEPEND}"
 

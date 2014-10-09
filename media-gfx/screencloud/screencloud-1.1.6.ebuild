@@ -1,7 +1,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=5
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 
 inherit cmake-utils python-r1
 
@@ -22,3 +22,7 @@ dev-python/PyQtMobility
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${P}/${PN}"
+
+src_configure(){
+	python_foreach_impl cmake-utils_src_configure
+}

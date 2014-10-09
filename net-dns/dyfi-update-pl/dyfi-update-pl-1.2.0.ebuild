@@ -16,7 +16,7 @@ RDEPEND="${DEPEND}"
 
 src_install() {
 	dobin dyfi-update.pl
-	doinitd dyfi-update
+	# doinitd dyfi-update
 	dodoc README
 	insinto /etc/
 	doins dyfi-update.conf

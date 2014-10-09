@@ -1,0 +1,25 @@
+#!/sbin/runscript
+# Copyright 2007-2008 Roy Marples <roy@marples.name>
+# All rights reserved. Released under the 2-clause BSD license.
+
+command=dyfi-update.pl
+pidfile=/var/run/dyfi-update.pid
+cfgfile=/etc/dyfi-update.conf
+command_args="-f $cfgfile -i $pidfile"
+name="dyfi-update"
+
+depend() {
+	need net
+}
+
+start() {
+	ebegin "Starting $name"
+	start-stop-daemon --start --background --pidfile $pidfile --exec $command -- $command_args
+	eend $?
+}
+
+stop() {
+	ebegin "Stopping $name"
+	start-stop-daemon --stop --pidfile $pidfile
+	eend $?
+}

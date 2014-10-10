@@ -1,6 +1,6 @@
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=4
 PYTHON_COMPAT=( python2_7 )
 
 inherit cmake-utils python-r1

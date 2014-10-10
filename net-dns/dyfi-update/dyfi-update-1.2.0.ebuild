@@ -1,4 +1,6 @@
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Header: $
 
 EAPI=4
 
@@ -14,10 +16,16 @@ IUSE=""
 DEPEND=""
 RDEPEND="${DEPEND}"
 
+S="${WORKDIR}/${PN}-pl-${PV}"
+
 src_install() {
 	dobin dyfi-update.pl
 	newinitd "${FILESDIR}/init-${PV}" dyfi-update
 	dodoc README
 	insinto /etc/
 	doins dyfi-update.conf
+}
+
+pkg_preinst() {
+	fperms 600 /etc/dyfi-update.conf
 }

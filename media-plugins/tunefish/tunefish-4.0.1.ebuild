@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=5
+EAPI=4
 
 DESCRIPTION="VST synthesizer"
 HOMEPAGE="http://www.tunefish-synth.com/"

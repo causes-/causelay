@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=5
+EAPI=4
 inherit eutils fdo-mime
 
 DESCRIPTION="Complete DAW using a tracker-based approach"

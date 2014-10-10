@@ -14,12 +14,16 @@ depend() {
 
 start() {
 	ebegin "Starting $name"
-	start-stop-daemon --start --background --pidfile $pidfile --exec $command -- $command_args
+	start-stop-daemon --start \
+		--background \
+		--pidfile $pidfile \
+		--exec $command -- $command_args
 	eend $?
 }
 
 stop() {
 	ebegin "Stopping $name"
-	start-stop-daemon --stop --pidfile $pidfile
+	start-stop-daemon --stop \
+		--pidfile $pidfile
 	eend $?
 }

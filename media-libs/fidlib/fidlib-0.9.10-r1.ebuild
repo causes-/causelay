@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/media-libs/fidlib/fidlib-0.9.10.ebuild,v 1.5 2012/06/13 12:59:29 johu Exp $
 
-EAPI=4
+EAPI=5
 
 inherit toolchain-funcs flag-o-matic eutils multilib
 

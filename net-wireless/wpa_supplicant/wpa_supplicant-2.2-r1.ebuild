@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/net-wireless/wpa_supplicant/wpa_supplicant-2.2-r1.ebuild,v 1.4 2014/10/05 19:07:17 zerochaos Exp $
 
-EAPI=4
+EAPI=5
 
 inherit eutils toolchain-funcs qt4-r2 systemd multilib
 

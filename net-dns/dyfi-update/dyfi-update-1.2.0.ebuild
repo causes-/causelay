@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 DESCRIPTION="dyndns client written by the dy.fi admins"
 HOMEPAGE="http://www.dy.fi/page/clients"

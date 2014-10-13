@@ -8,7 +8,7 @@ EGIT_REPO_URI="https://github.com/elmad/darkcoin-cpuminer-1.3-avx-aes"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="-x86"
 IUSE=""
 
 DEPEND="

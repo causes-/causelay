@@ -8,7 +8,7 @@ EGIT_REPO_URI="https://github.com/ig0tik3d/darkcoin-cpuminer-1.2c"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="-x86"
 IUSE=""
 
 DEPEND="

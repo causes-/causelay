@@ -14,6 +14,8 @@ IUSE=""
 DEPEND="
 	net-misc/curl
 	dev-libs/jansson
+	!net-misc/cpuminer
+	!net-misc/darkcoin-cpuminer
 "
 RDEPEND="${DEPEND}"
 

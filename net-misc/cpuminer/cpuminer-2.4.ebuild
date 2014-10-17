@@ -15,5 +15,7 @@ KEYWORDS="~amd64 ~x86"
 DEPEND="
 	net-misc/curl
 	dev-libs/jansson
+	!net-misc/darkcoin-cpuminer
+	!net-misc/darkcoin-cpuminer-avx-aes
 "
 RDEPEND="${DEPEND}"

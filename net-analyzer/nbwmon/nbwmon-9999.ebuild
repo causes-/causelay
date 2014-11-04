@@ -26,3 +26,8 @@ src_prepare() {
 	epatch "${FILESDIR}"/${P}-tinfo.patch
 	tc-export CC PKG_CONFIG
 }
+
+src_install() {
+	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr/" install
+	dodoc README
+}

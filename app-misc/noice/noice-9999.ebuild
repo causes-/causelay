@@ -4,7 +4,7 @@
 
 EAPI="5"
 
-inherit eutils toolchain-funcs git-r3
+inherit git-r3
 
 DESCRIPTION="small file browser"
 HOMEPAGE="http://git.2f30.org/noice/"
@@ -14,14 +14,10 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS=""
 
-RDEPEND="
-	sys-libs/ncurses
-"
-DEPEND="
-	${RDEPEND}
-"
+RDEPEND="sys-libs/ncurses"
+DEPEND="${RDEPEND}"
 
 src_install() {
-	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr/" install
+	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr/" MANPREFIX="/usr/share/man" install
 	dodoc README
 }

@@ -13,3 +13,7 @@ EGIT_REPO_URI="https://github.com/causes-/colors"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS=""
+
+src_install() {
+	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr/" install
+}

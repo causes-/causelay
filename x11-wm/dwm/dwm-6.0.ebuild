@@ -13,10 +13,14 @@ SRC_URI="http://dl.suckless.org/${PN}/${P}.tar.gz"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="amd64 ppc ppc64 x86 ~x86-fbsd"
-IUSE="xinerama"
+IUSE="dmenu rofi xinerama"
+
+REQUIRED_USE="|| ( dmenu rofi )"
 
 DEPEND="
 	x11-libs/libX11
+	dmenu? ( x11-misc/dmenu )
+	rofi? ( x11-misc/rofi )
 	xinerama? (
 		x11-proto/xineramaproto
 		x11-libs/libXinerama
@@ -57,16 +61,4 @@ src_install() {
 	dodoc README
 
 	save_config config.h
-}
-
-pkg_postinst() {
-	einfo "This ebuild has support for user defined configs"
-	einfo "Please read this ebuild for more details and re-emerge as needed"
-	einfo "if you want to add or remove functionality for ${PN}"
-	if ! has_version x11-misc/dmenu; then
-		elog "Installing ${PN} without x11-misc/dmenu"
-		einfo "To have a menu you can install x11-misc/dmenu"
-	fi
-	einfo "You can custom status bar by usimg xsetroot:"
-	einfo "xsetroot -name \"\`date\` \`uptime | sed 's/.*,//'\`\""
 }

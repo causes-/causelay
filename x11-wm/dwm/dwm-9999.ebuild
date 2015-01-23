@@ -13,7 +13,7 @@ EGIT_REPO_URI="git://git.suckless.org/dwm"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS=""
-IUSE="dmenu rofi xinerama"
+IUSE="+dmenu rofi xinerama"
 
 REQUIRED_USE="|| ( dmenu rofi )"
 

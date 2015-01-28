@@ -23,7 +23,7 @@ DEPEND="
 "
 
 src_prepare() {
-	epatch "${FILESDIR}"/${P}-tinfo.patch
+	epatch "${FILESDIR}"/${PN}-0.5.2-tinfo.patch
 	tc-export CC PKG_CONFIG
 }
 

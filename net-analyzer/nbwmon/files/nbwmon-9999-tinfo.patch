@@ -1,0 +1,13 @@
+Common subdirectories: nbwmon-upstream/.git and nbwmon/.git
+diff -up nbwmon-upstream/Makefile nbwmon/Makefile
+--- nbwmon-upstream/Makefile	2015-01-29 15:30:48.333658270 +0200
++++ nbwmon/Makefile	2015-01-29 15:31:46.209657418 +0200
+@@ -2,7 +2,7 @@
+ # add -I/usr/pkg/include and -L/usr/pkg/lib to the options
+ # below.
+ CFLAGS += -std=c99 -pedantic -Wall -Wextra
+-LDLIBS = -lncurses
++LDLIBS=$(shell $(PKG_CONFIG) --libs ncurses)
+ PREFIX = /usr/local
+ MANPREFIX = $(PREFIX)/man
+ 

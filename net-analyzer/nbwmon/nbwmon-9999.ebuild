@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -23,11 +23,15 @@ DEPEND="
 "
 
 src_prepare() {
-	epatch "${FILESDIR}"/${PN}-0.5.2-tinfo.patch
+	epatch "${FILESDIR}"/${P}-tinfo.patch
 	tc-export CC PKG_CONFIG
 }
 
 src_install() {
-	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr/" install
+	emake \
+		DESTDIR="${D}" \
+		PREFIX="${EPREFIX}/usr/" \
+		MANPREFIX="${PREFIX}/usr/share/man/" \
+		install
 	dodoc README
 }

@@ -19,7 +19,17 @@ RESTRICT="strip"
 DEPEND="!sys-process/cronbase"
 
 src_install() {
-	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr" install
+	emake \
+		DESTDIR="${D}" \
+		PREFIX="${EPREFIX}/usr" \
+		MANPREFIX="${PREFIX}/usr/share/man/" \
+		install
+
 	newinitd "${FILESDIR}/init-0.3.2" crond
 	dodoc README
+}
+
+pkg_postinst() {
+	elog "You will need to set up /etc/crontab file before running scron."
+	elog "For details, please see the scron(1) manual page."
 }

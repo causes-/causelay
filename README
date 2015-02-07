@@ -4,8 +4,8 @@ causelay
 Contents
 --------
 * Git versions of packages.
-* Latest versions waiting for addition to official portage tree.
-* Packages that can't be found from official portage tree.
+* Fresh ebuilds waiting for addition to the official portage tree.
+* Packages that don't fit to the official portage tree.
 
 Install
 -------

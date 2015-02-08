@@ -14,10 +14,14 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 
+RDEPEND=""
+DEPEND="${RDEPEND}"
+
 RESTRICT="strip"
 
 src_prepare() {
 	restore_config config.h
+
 	epatch_user
 }
 
@@ -29,19 +33,11 @@ src_install() {
 	emake DESTDIR="${D}" PREFIX="${EPREFIX}" install
 
 	newinitd "${FILESDIR}/init-${PV}" smdev
+
 	save_config config.h
 }
 
 pkg_postinst() {
-	elog
-	elog "To switch from udev you should do the following:"
-	elog "Disable udev USE flag"
-	elog "Use keyboard and mouse instead of evdev in INPUT_DEVICES"
-	elog "Rebuild world"
-	elog "Update X.Org configs to use kbd and mouse instead of evdev"
-	elog "rc-update del udev sysinit"
-	elog "rc-update del udev-mount sysinit"
-	elog "rc-update del udev-postmount boot"
-	elog "rc-update add smdev sysinit"
-	elog
+	elog "smdev install guide can be found at:"
+	elog "http://www.funtoo.org/Package:Smdev"
 }

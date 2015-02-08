@@ -14,7 +14,12 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 
-RDEPEND="x11-themes/gtk-engines-murrine"
+RDEPEND="
+	x11-themes/gtk-engines-murrine
+"
+DEPEND="
+	${RDEPEND}
+"
 
 RESTRICT="binchecks strip"
 

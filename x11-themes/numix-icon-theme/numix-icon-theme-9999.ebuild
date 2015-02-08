@@ -14,6 +14,9 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
 
+RDEPEND=""
+DEPEND="${RDEPEND}"
+
 RESTRICT="binchecks strip"
 
 src_install() {
